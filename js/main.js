@@ -69,10 +69,21 @@ function getFetch() {
       if (data.definitions.length == 1) {
         result.appendChild(document.createElement('img'));
         document.querySelector('img').src = data.definitions[0].image_url;
+
+        result.appendChild(document.createElement('h3')).className='type';
+        document.querySelector('.type').innerText = data.definitions[0].type;
+
+        result.appendChild(document.createElement('p')).className='def';
+        document.querySelector('.def').innerText = data.definitions[0].definition;
+
+        result.appendChild(document.createElement('p')).className='ex';
+        document.querySelector('.ex').innerText = data.definitions[0].example;
+
+
       } else {
         for (let i = 0; i < data.definitions.length; i++) {
-          console.log(data.definitions[i].type);
-  
+          // console.log(data.definitions[i].type);
+
           result.appendChild(document.createElement('h3')).className=`type type-${i}`;
           document.querySelector(`.type-${i}`).innerText = data.definitions[i].type;
   
@@ -87,12 +98,5 @@ function getFetch() {
     })
     .catch(error => console.log('error', error));
 }
-
-// for (let i = 0; i <= result.definitions.length; i++) {
-//   document.querySelector('h2').innerText = result.word;
-//   document.querySelector('h3').innerText = result.definitions[i].type;
-//   document.querySelector('.def').innerText = result.definitions[i].definition;
-//   document.querySelector('.ex').innerText = result.definitions[i].example;
-// }
 
 
