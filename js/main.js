@@ -1,5 +1,5 @@
 
-document.querySelector('button').addEventListener('click', getFetch)
+document.querySelector('button').addEventListener('click', getData)
 
 
 // function getFetch(){
@@ -40,20 +40,59 @@ document.querySelector('button').addEventListener('click', getFetch)
 // }
 
 
-document.querySelector('button').addEventListener('click', getFetch);
+document.querySelector('button').addEventListener('click', getData);
+checkDictionary(); 
 
-function getFetch() {
+function checkDictionary() {
+  if (!localStorage.getItem('dictionary')) {
+    return
+  } else {
+    let myDictionary = document.querySelector('#myDictionary');
+    let split = localStorage.getItem('dictionary').split(' ; '); //what about the first word in local storage, split throws error
+    for (let i = 0; i < split.length; i++) {
+    myDictionary.appendChild(document.createElement('p')).className= `myDictionary myDictionary-${i}`;
+    document.querySelector(`.myDictionary-${i}`).innerText = split[i];
+    }
+  }
+}
+
+document.querySelectorAll('.myDictionary').forEach(word => word.addEventListener('click', fetchHistory));
+function fetchHistory(event) {
+  
   let myHeaders = new Headers();
   myHeaders.append("Authorization", "Token 203b856643c07ec9c95183122553a5a6bcfb975b");
-
-  let word = document.querySelector('input').value;
-  let url = `https://owlbot.info/api/v4/dictionary/${word}`
   
   let requestOptions = {
     method: 'GET',
     headers: myHeaders,
     redirect: 'follow'
   };
+
+  // let word = document.querySelector('.myDictionary').value;
+  let word = event.currentTarget.outerText;
+  let url = `https://owlbot.info/api/v4/dictionary/${word}`
+
+  fetch(url, requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+}
+
+
+
+function getData() {
+  let myHeaders = new Headers();
+  myHeaders.append("Authorization", "Token 203b856643c07ec9c95183122553a5a6bcfb975b");
+  
+  let requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };
+
+  let word = document.querySelector('input').value;
+  let url = `https://owlbot.info/api/v4/dictionary/${word}`
   
   fetch(url, requestOptions)
     .then(response => response.json())
@@ -67,8 +106,11 @@ function getFetch() {
       };
 
       if (data.definitions.length == 1) {
-        result.appendChild(document.createElement('img'));
-        document.querySelector('img').src = data.definitions[0].image_url;
+
+        if (data.definitions[0].image_url) {
+          result.appendChild(document.createElement('img'));
+          document.querySelector('img').src = data.definitions[0].image_url;
+        } 
 
         result.appendChild(document.createElement('h3')).className='type';
         document.querySelector('.type').innerText = data.definitions[0].type;
@@ -95,6 +137,22 @@ function getFetch() {
   
         }
       }
+
+      if (!localStorage.getItem('dictionary')) {
+        localStorage.setItem('dictionary', data.word);
+      } else {
+        let dictionary = localStorage.getItem('dictionary') + ' ; ' + data.word;
+        localStorage.setItem('dictionary', dictionary)
+      }
+
+      let myDictionary = document.querySelector('#myDictionary');
+      let split = localStorage.getItem('dictionary').split(' ; '); //what about the first word in local storage, split throws error
+      for (let i = 0; i < split.length; i++) {
+      myDictionary.appendChild(document.createElement('p')).className= `myDictionary-${i}`;
+      document.querySelector(`.myDictionary-${i}`).innerText = split[i];
+      }
+
+
     })
     .catch(error => console.log('error', error));
 }
