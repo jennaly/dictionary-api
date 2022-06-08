@@ -48,7 +48,7 @@ function fetchHistory(event) {
   fetch(url, requestOptions)
   .then(response => response.json())
   .then(data => {
-    console.log(data);
+    appendWordTitle(data);
 
     let result = document.getElementById('result');
     while (result.firstChild) {
@@ -83,6 +83,8 @@ function getData() {
   fetch(url, requestOptions)
   .then(response => response.json())
   .then(data => {
+    appendWordTitle(data);
+
     removePriorContent();
 
     if (data.definitions[0].image_url) {
@@ -106,6 +108,11 @@ function removePriorContent() {
   while (result.firstChild) {
     result.removeChild(result.firstChild)
   };
+}
+
+function appendWordTitle(data) {
+  let wordTitle = document.querySelector('.wordTitle');
+  wordTitle.innerText = data.word;
 }
 
 function appendPicture(data) {
