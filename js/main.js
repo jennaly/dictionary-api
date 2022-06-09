@@ -48,13 +48,18 @@ function fetchHistory(event) {
   fetch(url, requestOptions)
   .then(response => response.json())
   .then(data => {
-    appendWordTitle(data);
 
     let result = document.getElementById('result');
     while (result.firstChild) {
       result.removeChild(result.firstChild)
     };
-
+    appendWordTitle(data);
+    document.getElementById('result').style.height = '200px';
+    document.querySelector('.data').style.display = 'block';
+    document.querySelector('.wordPic').style.display = "none"; 
+    if (data.definitions.length !== 1) {
+      document.getElementById('result').style.overflow = 'scroll';
+    }
     if (data.definitions[0].image_url) {
         appendPicture(data);
     } 
@@ -83,14 +88,23 @@ function getData() {
   fetch(url, requestOptions)
   .then(response => response.json())
   .then(data => {
-    appendWordTitle(data);
 
     removePriorContent();
+
+    appendWordTitle(data);
+
+    if (data.definitions.length !== 1) {
+      document.getElementById('result').style.overflow = 'scroll';
+    }
+    document.getElementById('result').style.height = '200px';
+    document.querySelector('.data').style.display = 'block';
+    document.querySelector('.wordPic').style.display = "none"; 
+
 
     if (data.definitions[0].image_url) {
       appendPicture(data);
     } 
-    
+
     appendTextContent(data);
 
     setLocalStorage(data);
@@ -111,28 +125,31 @@ function removePriorContent() {
 }
 
 function appendWordTitle(data) {
-  let wordTitle = document.querySelector('.wordTitle');
-  wordTitle.innerText = data.word;
+  document.querySelector('h2').innerText = data.word;
 }
 
+
+
 function appendPicture(data) {
-  let result = document.getElementById('result');
-  result.appendChild(document.createElement('img'));
-  document.querySelector('img').src = data.definitions[0].image_url;
+  document.querySelector('.wordPic').style.display = "inline-block"; 
+  document.querySelector('.wordPic').src = data.definitions[0].image_url;
+
 }
 
 function appendTextContent (data) {
   let result = document.getElementById('result');
   for (let i = 0; i < data.definitions.length; i++) {
     result.appendChild(document.createElement('h3')).className=`type type-${i}`;
-    document.querySelector(`.type-${i}`).innerText = data.definitions[i].type;
+    document.querySelector(`.type-${i}`).innerText = data.definitions[i].type.toUpperCase();
 
     result.appendChild(document.createElement('p')).className=`def def-${i}`;
     document.querySelector(`.def-${i}`).innerText = data.definitions[i].definition;
 
-    result.appendChild(document.createElement('p')).className=`ex ex-${i}`;
-    document.querySelector(`.ex-${i}`).innerText = data.definitions[i].example;
-  
+    if (data.definitions[i].example !== null) {
+      result.appendChild(document.createElement('p')).className=`ex ex-${i}`;
+      document.querySelector(`.ex-${i}`).innerText = `\"${data.definitions[i].example}\"`;
+    }
+    
   }
 }
 
