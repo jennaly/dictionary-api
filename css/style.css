@@ -153,6 +153,13 @@ button:hover {
 /******************************************
 /* TYPOGRAPHY
 /*******************************************/
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 4rem;
+  color: rgba(180,112,54);
+  letter-spacing: .2rem;
+}
 h2 {
   font-family: 'Fredoka One', cursive;
   padding-bottom: 0.8rem;
@@ -191,6 +198,10 @@ textarea:focus, input:focus{
 
 .myDictionary {
   font-size: 1.2rem;
+}
+
+a {
+  text-decoration: none;
 }
 /******************************************
 /* MEDIA QUERIES
