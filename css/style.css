@@ -10,7 +10,15 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
-
+@media screen and (max-width: 320px) {
+  .background {
+    height: 120%;
+    width: 120%;
+  }
+  .data {
+    height: 430px;
+  }
+}
 .background {
   object-fit: fill;
   z-index: 0;
@@ -266,6 +274,7 @@ a {
   }
   .data {
     width: 85%;
+    height: 420px;
   }
   .input {
     width: 85%;
@@ -283,3 +292,4 @@ a {
     margin-right: 1rem;
   }
 }
+
