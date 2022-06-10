@@ -10,6 +10,22 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
+
+.background {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  z-index: 0;
+  position: absolute;
+}
+
+.site-title,
+.input,
+.data,
+#myDictionary {
+  z-index: 1;
+  position: relative;
+}
 .site-title,
 .input {
   display: flex;
@@ -42,8 +58,13 @@
 /******************************************
 /* MODULES
 /*******************************************/
-body {
+/* body {
   background: no-repeat url(../img/test2.png);
+} */
+
+.site-title {
+  width: 40%;
+  text-align: center;
 }
 
 .input {
@@ -211,6 +232,10 @@ a {
 
 /*tablets*/
 @media screen and (max-width: 768px) {
+  .background {
+    height: 100%;
+    width: 100vw;
+  }
   .data {
     width: 65%;
   }
@@ -223,6 +248,10 @@ a {
 }
 
 @media screen and (max-width: 375px) {
+  .background {
+    height: 100%;
+    width: 100vw;
+  }
   .data {
     width: 85%;
   }
