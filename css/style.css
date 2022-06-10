@@ -12,8 +12,6 @@
 /*******************************************/
 
 .background {
-  height: 100%;
-  width: 100%;
   object-fit: fill;
   z-index: 0;
   position: absolute;
@@ -231,18 +229,22 @@ a {
 /*******************************************/
 
 /*tablets*/
+@media screen and (min-width: 1441px) {
+  .background {
+    width: 100%;
+  }
+}
+
 
 @media screen and (max-width: 1440px) {
   .background {
     height: 100%;
-    width: 100vw;
   }
 }
-  
+
 @media screen and (max-width: 768px) {
   .background {
     height: 100%;
-    width: 100vw;
   }
   .data {
     width: 65%;
