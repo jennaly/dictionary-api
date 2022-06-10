@@ -10,15 +10,7 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
-@media screen and (max-width: 320px) {
-  .background {
-    height: 120%;
-    width: 120%;
-  }
-  .data {
-    height: 430px;
-  }
-}
+
 .background {
   object-fit: fill;
   z-index: 0;
@@ -31,6 +23,7 @@
 #myDictionary {
   z-index: 1;
   position: relative;
+  margin: 0 auto;
 }
 .site-title,
 .input {
@@ -239,7 +232,7 @@ a {
 /*tablets*/
 @media screen and (min-width: 1441px) {
   .background {
-    width: 120%;
+    width: 100%;
   }
 }
 
@@ -254,7 +247,7 @@ a {
 @media screen and (max-width: 768px) {
   .background {
     height: 120%;
-    width: 120%;
+    width: 100%;
   }
   .data {
     width: 65%;
@@ -270,7 +263,7 @@ a {
 @media screen and (max-width: 375px) {
   .background {
     height: 120%;
-    width: 120%;
+    width: 100%;
   }
   .data {
     width: 85%;
@@ -293,3 +286,12 @@ a {
   }
 }
 
+@media screen and (max-width: 320px) {
+  .background {
+    height: 120%;
+    width: 100%;
+  }
+  .data {
+    height: 430px;
+  }
+}
