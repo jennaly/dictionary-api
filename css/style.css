@@ -231,6 +231,14 @@ a {
 /*******************************************/
 
 /*tablets*/
+
+@media screen and (max-width: 1440px) {
+  .background {
+    height: 100%;
+    width: 100vw;
+  }
+}
+  
 @media screen and (max-width: 768px) {
   .background {
     height: 100%;
