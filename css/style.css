@@ -240,7 +240,7 @@ a {
 @media screen and (max-width: 1440px) {
   .background {
     height: 120%;
-    width: 120%;
+    width: 100%;
   }
 }
 
