@@ -54,12 +54,8 @@ function fetchHistory(event) {
       result.removeChild(result.firstChild)
     };
     appendWordTitle(data);
-    document.getElementById('result').style.height = '200px';
-    document.querySelector('.data').style.display = 'block';
-    document.querySelector('.wordPic').style.display = "none"; 
-    if (data.definitions.length !== 1) {
-      document.getElementById('result').style.overflow = 'scroll';
-    }
+    addScroll(data)
+    changeDataStyle();
     if (data.definitions[0].image_url) {
         appendPicture(data);
     } 
@@ -93,12 +89,12 @@ function getData() {
 
     appendWordTitle(data);
 
-    if (data.definitions.length !== 1) {
-      document.getElementById('result').style.overflow = 'scroll';
-    }
-    document.getElementById('result').style.height = '200px';
-    document.querySelector('.data').style.display = 'block';
-    document.querySelector('.wordPic').style.display = "none"; 
+    addScroll(data)
+
+    changeDataStyle();
+    // document.getElementById('result').style.height = '200px';
+    // document.querySelector('.data').style.display = 'block';
+    // document.querySelector('.wordPic').style.display = "none"; 
 
 
     if (data.definitions[0].image_url) {
@@ -114,6 +110,19 @@ function getData() {
     checkDictionary();
   })
   .catch(error => console.log('error', error));
+}
+
+function addScroll(data) {
+  if (data.definitions.length !== 1) {
+    document.getElementById('result').style.overflow = 'scroll';
+  }
+}
+
+
+function changeDataStyle() {
+  document.getElementById('result').style.height = '200px';
+  document.querySelector('.data').style.display = 'block';
+  document.querySelector('.wordPic').style.display = "none"; 
 }
 
 function removePriorContent() {
