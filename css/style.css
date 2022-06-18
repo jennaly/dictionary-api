@@ -229,40 +229,9 @@ a {
 /* MEDIA QUERIES
 /*******************************************/
 
-/*tablets*/
-@media screen and (min-width: 1441px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .background {
-    width: 100%;
-  }
-}
-
-
-@media screen and (max-width: 1440px) {
-  .background {
-    height: 120%;
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .background {
-    height: 120%;
-    width: 100%;
-  }
-  .data {
-    width: 65%;
-  }
-  .input {
-    width: 65%;
-  }
-  #myDictionary {
-    width: 65%;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .background {
-    height: 120%;
+    height: fit-content;
     width: 100%;
   }
   .data {
@@ -286,12 +255,28 @@ a {
   }
 }
 
-@media screen and (max-width: 320px) {
+
+ @media screen and (min-width: 768px) and (max-width: 1023px) {
   .background {
-    height: 120%;
     width: 100%;
+    height: fit-content;
   }
   .data {
-    height: 430px;
+    width: 65%;
+  }
+  .input {
+    width: 65%;
+  }
+  #myDictionary {
+    width: 65%;
+  }
+} 
+
+@media screen and (min-width: 1024px) {
+  .background {
+    width: 100%;
+    height: fit-content;
   }
 }
+
+
