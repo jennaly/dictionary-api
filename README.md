@@ -3,7 +3,7 @@ A fun, interactive dictionary for young avid learners that takes the user's word
 
 **Link to project:** http://lexilearn.netlify.com/
 
-![alt text](https://github.com/jennaly/lexilearn-dictionary/blob/main/img/lexilearn.gif?raw=true)
+![alt text](https://github.com/jennaly/lexilearn-dictionary/blob/main/img/lexilearn-min.gif?raw=true)
 
 ## How It's Made:
 
