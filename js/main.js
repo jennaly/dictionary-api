@@ -93,7 +93,7 @@ function getData() {
 }
 
 function wordNotFound() {
-  document.querySelector('h2').innerText = "This is awkward";
+  document.querySelector('h2').innerText = "Uh oh!";
   document.querySelector('.wordPic').style.display = "inline-block"; 
   document.querySelector('.wordPic').src = "/img/wordNotFound.jpg";
   let result = document.getElementById('result');
