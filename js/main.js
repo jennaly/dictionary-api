@@ -138,11 +138,11 @@ function appendTextContent (data) {
     document.querySelector(`.type-${i}`).innerText = data.definitions[i].type.toUpperCase();
 
     result.appendChild(document.createElement('p')).className=`def def-${i}`;
-    document.querySelector(`.def-${i}`).innerText = data.definitions[i].definition;
+    document.querySelector(`.def-${i}`).innerText = data.definitions[i].definition.replace(/[^a-zA-Z0-9-!-.-? ]/g, '');
 
     if (data.definitions[i].example !== null) {
       result.appendChild(document.createElement('p')).className=`ex ex-${i}`;
-      document.querySelector(`.ex-${i}`).innerText = `\"${data.definitions[i].example}\"`;
+      document.querySelector(`.ex-${i}`).innerText = `\"${data.definitions[i].example}\"`.replace(/[^a-zA-Z0-9-!-.-? ]/g, '');
     }
     
   }
