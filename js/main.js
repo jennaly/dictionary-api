@@ -98,12 +98,15 @@ function wordNotFound() {
   document.querySelector('.wordPic').src = "/img/wordNotFound.jpg";
   let result = document.getElementById('result');
   result.appendChild(document.createElement('h3'));
+  document.getElementById('result').style.overflow = 'auto';
   document.querySelector('h3').innerText = "We don\'t have the word you\'re searching for. Please revise your search or enter another word, thank you!";
 }
 
 function addScroll(data) {
   if (data.definitions.length !== 1) {
     document.getElementById('result').style.overflow = 'scroll';
+  } else {
+    document.getElementById('result').style.overflow = 'auto';
   }
 }
 
