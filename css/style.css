@@ -29,7 +29,7 @@
 .input {
   display: flex;
   justify-content: center;
-  width: 35%;
+  max-width: 504px;
   margin: 0 auto;
 }
 
@@ -48,7 +48,7 @@
   justify-content: space-between;
   width: 75%;
   margin: 2rem auto;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
   align-items: center;
 }
 
@@ -57,9 +57,7 @@
 /******************************************
 /* MODULES
 /*******************************************/
-/* body {
-  background: no-repeat url(../img/test2.png);
-} */
+
 
 .site-title {
   width: 40%;
@@ -123,15 +121,15 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 35%;
+  max-width: 504px;
   column-gap: 1rem;
-  margin: 1rem auto;
+  margin: 2rem auto;
 }
 
 .data {
   display:none;
   height: 400px;
-  width: 35%;
+  max-width: 504px;
   margin: 0 auto;
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.8)
@@ -259,8 +257,8 @@ a {
 
  @media screen and (min-width: 768px) and (max-width: 1023px) {
   .background {
-    width: 100%;
     height: fit-content;
+    width: 100%;
   }
   .data {
     width: 65%;
@@ -275,9 +273,17 @@ a {
 
 @media screen and (min-width: 1024px) {
   .background {
-    width: 100%;
     height: fit-content;
+    width: 100%;
   }
 }
 
-
+@media screen and (min-width: 2056px) {
+  .background {
+    display: none;
+  }
+  body {
+    background-image: url('/img/background-min.png');
+    background-size: cover;
+  }
+}

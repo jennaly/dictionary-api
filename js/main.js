@@ -1,8 +1,13 @@
 //checks local storage onload 
 checkDictionary(); 
 
-//fetches data onclick 
+//fetches data onclick
 document.querySelector('button').addEventListener('click', getData);
+document.querySelector('input').addEventListener('keypress', function(event) {
+  if (event.key === "Enter") {
+    document.querySelector('button').click();
+  }
+});
 
 //personal dictionary is made up of the user's past searches
 //checks local storage for existing dictionary
@@ -31,24 +36,15 @@ function setPersonalDictionary() {
 //for each word displayed in the dictionary section
 //clicking on the word requests data from the api for it
 function fetchHistory(event) {
-  
-  let myHeaders = new Headers();
-  myHeaders.append("Authorization", "Token 203b856643c07ec9c95183122553a5a6bcfb975b");
-  
-  let requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow'
-  };
-
   let word = event.currentTarget.outerText;
+  let pastSearch = document.querySelector('input');
+  clearSearchBar(pastSearch);
 
-  let url = `https://owlbot.info/api/v4/dictionary/${word}`
+  let url = `https://lexilearn-api.herokuapp.com/api/dictionary/${word}`;
 
-  fetch(url, requestOptions)
+  fetch(url)
   .then(response => response.json())
   .then(data => {
-
     let result = document.getElementById('result');
     while (result.firstChild) {
       result.removeChild(result.firstChild)
@@ -59,7 +55,6 @@ function fetchHistory(event) {
     if (data.definitions[0].image_url) {
         appendPicture(data);
     } 
-    
     appendTextContent(data);
   }
 )}
@@ -69,47 +64,41 @@ function fetchHistory(event) {
 //sets up the HTTP Authorization request in header
 //sets up request options for fetch request 
 function getData() {
-  let myHeaders = new Headers();
-  myHeaders.append("Authorization", "Token 203b856643c07ec9c95183122553a5a6bcfb975b");
-  
-  let requestOptions = {
-    method: 'GET',
-    headers: myHeaders,
-    redirect: 'follow'
-  };
 
-  let word = document.querySelector('input').value;
-  let url = `https://owlbot.info/api/v4/dictionary/${word}`
-  
-  fetch(url, requestOptions)
+  let word = document.querySelector('input');
+  let url = `https://lexilearn-api.herokuapp.com/api/dictionary/${word.value}`
+
+  fetch(url)
   .then(response => response.json())
   .then(data => {
-
+    console.log(data);
     removePriorContent();
-
-    appendWordTitle(data);
-
-    addScroll(data)
-
     changeDataStyle();
-    // document.getElementById('result').style.height = '200px';
-    // document.querySelector('.data').style.display = 'block';
-    // document.querySelector('.wordPic').style.display = "none"; 
-
-
+    if (!data.definitions) {
+      console.log('no def');
+      return wordNotFound();
+    }
     if (data.definitions[0].image_url) {
       appendPicture(data);
     } 
-
+    addScroll(data);
+    appendWordTitle(data);
     appendTextContent(data);
-
     setLocalStorage(data);
-
     removePersonalDictionaryContent();
-
     checkDictionary();
+    clearSearchBar(word);
   })
   .catch(error => console.log('error', error));
+}
+
+function wordNotFound() {
+  document.querySelector('h2').innerText = "This is awkward";
+  document.querySelector('.wordPic').style.display = "inline-block"; 
+  document.querySelector('.wordPic').src = "/img/wordNotFound.jpg";
+  let result = document.getElementById('result');
+  result.appendChild(document.createElement('h3'));
+  document.querySelector('h3').innerText = "We don\'t have the word you\'re searching for. Please revise your search or enter another word, thank you!";
 }
 
 function addScroll(data) {
@@ -137,12 +126,9 @@ function appendWordTitle(data) {
   document.querySelector('h2').innerText = data.word;
 }
 
-
-
 function appendPicture(data) {
   document.querySelector('.wordPic').style.display = "inline-block"; 
   document.querySelector('.wordPic').src = data.definitions[0].image_url;
-
 }
 
 function appendTextContent (data) {
@@ -176,4 +162,8 @@ function removePersonalDictionaryContent() {
   while (myDictionary.firstChild) {
     myDictionary.removeChild(myDictionary.firstChild)
   };
+}
+
+function clearSearchBar(elem) {
+  elem.value = '';
 }
