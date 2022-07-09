@@ -3,6 +3,8 @@ A fun, interactive dictionary for young avid learners that takes the user's word
 
 **Link to project:** http://lexilearn.netlify.com/
 
+To learn more about this project's backend code, click <a href="https://github.com/jennaly/lexilearn-proxy-api/">**here**</a>
+
 ![alt text](https://github.com/jennaly/lexilearn-dictionary/blob/main/img/lexilearn-min.gif?raw=true)
 
 ## How It's Made:
