@@ -11,7 +11,7 @@ A fun, interactive dictionary for young avid learners that takes the user's word
 Front-End: HTML, CSS, JavaScript <br>
 Back-End: Node.js, Express.js 
 
-The definition(s), image, and example sentence are fetched from the <a href="https://owlbot.info/">Owlbot Dictionary API</a> via an Express proxy API. Input from the user is appended to the request URL as a parameter to retrieve data that corresponds to the word. For every search, content on the page is updated with DOM manipulation. Each word search is saved to the user's browser window using Javascript's localStorage property and can be easily accessed for ease of use. 
+The definition(s), image, and example sentence are fetched from the <a href="https://owlbot.info/">Owlbot Dictionary API</a> via an Express proxy API. Input from the user is appended to the request URL as a parameter to retrieve data that corresponds to the word. Each word search is saved to the user's browser window using the localStorage object. Data retrieved from localStorage is appended to the DOM and presented as a personalized dictionary, which in turn can be used by the user to revisit words they have looked up before.
 
 ## Optimizations
 
@@ -19,7 +19,7 @@ Images used in this application underwent lossless compression to optimize load 
 
 ## Lessons Learned:
 
-I learned to write basic authentication with Fetch using the Authorization header. 
+I learned to write basic authentication with Fetch using the Authorization header as well as store and retrieve data from localStorage.
 
 
 
