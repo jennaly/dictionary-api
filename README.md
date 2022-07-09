@@ -19,7 +19,7 @@ Images used in this application underwent lossless compression to optimize load 
 
 ## Lessons Learned:
 
-I learned to write basic authentication with Fetch using the Authorization header as well as store and retrieve data from localStorage.
+I learned to store and retrieve data from localStorage.
 
 
 
