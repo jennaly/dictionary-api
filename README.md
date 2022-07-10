@@ -23,5 +23,10 @@ Images used in this application underwent lossless compression to optimize load 
 
 I learned to store and retrieve data from localStorage.
 
+## References
+
+**Link to project:** http://lexilearn.netlify.com/
+**Link to Lexi Learn Proxy API:** https://github.com/jennaly/lexilearn-proxy-api/
+
 
 
