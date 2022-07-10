@@ -25,7 +25,7 @@ I learned to store and retrieve data from localStorage.
 
 ## References
 
-**Link to project:** http://lexilearn.netlify.com/
+**Link to project:** http://lexilearn.netlify.com/ <br>
 **Link to Lexi Learn Proxy API:** https://github.com/jennaly/lexilearn-proxy-api/
 
 
