@@ -2,7 +2,7 @@
 checkDictionary(); 
 
 //fetches data onclick
-document.querySelector('button').addEventListener('click', getData);
+document.querySelector('.submit-btn').addEventListener('click', getData);
 document.querySelector('input').addEventListener('keypress', function(event) {
   if (event.key === "Enter") {
     document.querySelector('button').click();
