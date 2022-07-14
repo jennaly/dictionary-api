@@ -1,5 +1,5 @@
 # Lexi Learn Illustrated Dictionary
-A fun, interactive dictionary for young avid learners that takes the user's word search and returns its definition(s) along with an image and example sentence (when applicable) from an English dictionary database. Designed for students in primary and secondary education, the application utilizes an expressive typeface and color scheme along with animated elements to stimulate student engagement. Lexi Learn's search history functionality allows students to review vocabulary words at their convenience, even after refreshing or having closed the browser window. The web application is responsive and mobile-friendly.
+A fun, interactive dictionary for young avid learners that takes the user's word search and returns its definition(s) along with an image and example sentence (when applicable) from an English dictionary database. Designed for students in primary and secondary education, the application utilizes an expressive typeface and color scheme along with animated elements to stimulate student engagement. Lexi Learn's search history functionality promotes spaced repetition learning by allowing students to review vocabulary words at their convenience. The web application is responsive and mobile-friendly.
 
 **Link to project:** http://lexilearn.netlify.com/
 
