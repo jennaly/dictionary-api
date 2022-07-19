@@ -21,7 +21,7 @@ Images used in this application underwent lossless compression to optimize load 
 
 ## Lessons Learned:
 
-I learned to store and retrieve data from localStorage and using DOM manipulation methods to update page content.
+I learned to store and retrieve data from localStorage and use DOM manipulation methods to update page content.
 
 ## References
 
