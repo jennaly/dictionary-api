@@ -5,7 +5,7 @@ checkDictionary();
 document.querySelector('.submit-btn').addEventListener('click', getData);
 document.querySelector('input').addEventListener('keypress', function(event) {
   if (event.key === "Enter") {
-    document.querySelector('button').click();
+    document.querySelector('.submit-btn').click();
   }
 });
 
