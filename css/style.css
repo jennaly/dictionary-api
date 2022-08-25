@@ -14,9 +14,8 @@
   height: 100%;
 } */
 body {
-  background-image: url('/img/background-min.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: rgb(240,230,223);
+  background: linear-gradient(34deg, rgba(240,230,223,1) 0%, rgba(232,219,212,1) 5%, rgba(230,215,208,1) 11%, rgba(225,195,187,1) 25%, rgba(237,197,113,1) 60%, rgba(255,211,204,1) 99%);
   min-height: 100vh;
 }
 
