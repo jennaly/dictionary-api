@@ -163,7 +163,7 @@ button:hover {
   margin-top: 1rem;
   margin-bottom: 1rem; 
   text-align: center;
-  background: rgb(230, 201, 127);
+  background: rgb(230, 211, 127);
   box-shadow: 10px 5px 5px grey;
   transition: margin 0.25s ease-in-out;
 } 
