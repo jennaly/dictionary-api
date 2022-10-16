@@ -5,7 +5,7 @@ A fun, interactive dictionary for young avid learners that takes the user's word
 
 To learn more about this project's server code, click <a href="https://github.com/jennaly/lexilearn-proxy-api/">**here**</a>
 
-![LexiLearnDemo](https://user-images.githubusercontent.com/106183040/196015198-1cecbf29-4bef-4065-90f1-c01fbfd19c30.gif)
+![LexiLearnDemo](https://user-images.githubusercontent.com/106183040/196015276-2c36ba5a-fd9e-414f-ba81-034f67fb046d.gif)
 
 ## How It's Made:
 
