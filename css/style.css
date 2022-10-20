@@ -47,14 +47,13 @@ body {
 
 #content {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 75%;
   margin: 2rem auto;
   margin-bottom: 0.5rem;
   align-items: center;
 }
-
-
 
 /******************************************
 /* MODULES
@@ -230,6 +229,14 @@ a {
 /* MEDIA QUERIES
 /*******************************************/
 
+@media screen and (max-width: 420px) {
+  #content img {
+    margin: 0 auto;
+  }
+  .data {
+    padding-bottom: 6rem;
+  }
+}
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .data {
     width: 85%;
