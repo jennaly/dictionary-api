@@ -66,7 +66,7 @@ function fetchHistory(event) {
 function getData() {
 
   let word = document.querySelector('input');
-  let url = `https://lexilearn-api.herokuapp.com/api/dictionary/${word.value}`
+  let url = `https://lexilearn-proxy-api.cyclic.app/api/dictionary/${word.value}`
 
   fetch(url)
   .then(response => response.json())
