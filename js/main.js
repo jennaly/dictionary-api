@@ -40,7 +40,7 @@ function fetchHistory(event) {
   let pastSearch = document.querySelector('input');
   clearSearchBar(pastSearch);
 
-  let url = `https://lexilearn-api.herokuapp.com/api/dictionary/${word}`;
+  let url = `https://lexilearn-proxy-api.cyclic.app/api/dictionary/${word}`;
 
   fetch(url)
   .then(response => response.json())
